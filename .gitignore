@@ -8,3 +8,4 @@ airflow/logs/
 airflow/*.log
 *.log
 "logs/" 
+Model_Pipeline/models/vector_store/0c34438b-1c42-4aac-b384-d5b05ccd658e/length.bin
