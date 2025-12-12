@@ -478,68 +478,6 @@ st.markdown("""
         line-height: 1.6;
     }
     
-    /* Hide Streamlit */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    .stDeployButton {display: none;}
-    
-    /* Header */
-    .app-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 70px;
-        background: rgba(10, 14, 39, 0.85);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 3rem;
-        z-index: 1000;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .logo-section {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .logo-text {
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: #60a5fa;
-        line-height: 1.2;
-    }
-    
-    .logo-subtitle {
-        font-size: 0.65rem;
-        color: #a78bfa;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 600;
-    }
-    
-    .nav-menu {
-        display: flex;
-        gap: 2.5rem;
-        align-items: center;
-    }
-    
-    .nav-link {
-        color: #94a3b8;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: color 0.3s;
-        cursor: pointer;
-    }
-    
-    .nav-link:hover {
-        color: #60a5fa;
-    }
-    
     /* Footer */
     .app-footer {
         background: rgba(10, 14, 39, 0.95);
@@ -586,57 +524,6 @@ st.markdown("""
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         color: #64748b;
         font-size: 0.85rem;
-    }
-    
-    /* Content Spacing */
-    .content-wrapper {
-        padding-top: 90px;
-        position: relative;
-        z-index: 10;
-    }
-    
-    /* Hero */
-    .hero-section {
-        text-align: center;
-        padding: 5rem 2rem 3rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .hero-badge {
-        display: inline-block;
-        padding: 0.6rem 1.5rem;
-        background: rgba(102, 126, 234, 0.15);
-        border: 1.5px solid rgba(102, 126, 234, 0.4);
-        border-radius: 50px;
-        color: #667eea;
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        margin-bottom: 2rem;
-        backdrop-filter: blur(10px);
-    }
-    
-    .hero-title {
-        font-size: clamp(2.5rem, 8vw, 5rem);
-        font-weight: 900;
-        line-height: 1.1;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 25%, #f472b6 50%, #34d399 75%, #fbbf24 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        letter-spacing: -2px;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.15rem;
-        color: #94a3b8;
-        max-width: 700px;
-        margin: 0 auto 3rem;
-        line-height: 1.8;
-        font-weight: 300;
     }
     
     /* Buttons */
@@ -814,11 +701,6 @@ st.markdown("""
     .loading-dot:nth-child(2) { animation-delay: 0.2s; }
     .loading-dot:nth-child(3) { animation-delay: 0.4s; }
     
-    @keyframes bounce {
-        0%, 80%, 100% { transform: translateY(0); }
-        40% { transform: translateY(-20px); }
-    }
-    
     @media (max-width: 768px) {
         .stats-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -930,7 +812,6 @@ def show_landing_page():
             </div>
         </div>
         
-        <!-- Floating Animated Orbs -->
         <div class="floating-orbs">
             <div class="orb orb-1"></div>
             <div class="orb orb-2"></div>
@@ -954,8 +835,8 @@ def show_landing_page():
         </div>
     """, unsafe_allow_html=True)
     
-    # Launch Button
-    col1, col2, col3 = st.columns([1, 0.8, 1])
+    # Launch Button - Centered
+    col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
         if st.button("Launch Intelligence System", key="launch_btn"):
             # Show loading animation
@@ -1109,7 +990,7 @@ def show_landing_page():
     st.markdown('<h2 class="section-title">Ready to Transform Your Team Onboarding?</h2>', unsafe_allow_html=True)
     st.markdown('<p class="section-subtitle">GitLab Intelligent Onboarding - Powering teams globally</p>', unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns([1, 0.8, 1])
+    col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
         if st.button("Launch Intelligence System Now", key="launch_cta"):
             # Show loading animation
@@ -1164,11 +1045,10 @@ def show_landing_page():
     st.markdown('</div>', unsafe_allow_html=True)
 
 def show_app():
-    """Display chatbot app with history"""
+    """Display chatbot app with history - CENTERED VERSION"""
     
     # Add the same animated background for consistency
     st.markdown("""
-        <!-- Floating Animated Orbs -->
         <div class="floating-orbs">
             <div class="orb orb-1"></div>
             <div class="orb orb-2"></div>
@@ -1249,95 +1129,106 @@ def show_app():
             st.session_state.avg_response_time = 0
             st.rerun()
     
-    # Main Content
-    st.title("🦊 GitLab Onboarding Assistant")
-    st.markdown("### Ask me anything about GitLab!")
+    # --- CENTERED LAYOUT LOGIC STARTS HERE ---
+    # We use columns [1, 2, 1] to create a centered channel
+    spacer_left, main_content, spacer_right = st.columns([1, 2, 1])
     
-    # Initialize pipeline
-    if st.session_state.rag_pipeline is None:
-        with st.spinner("Initializing AI from GCS..."):
-            st.session_state.rag_pipeline = initialize_pipeline()
-        st.success("✅ Ready!")
-    
-    # Query input
-    query_input = st.text_input(
-        "Your Question:",
-        placeholder="e.g., What is GitLab's sustainability approach?",
-        key="query_input"
-    )
-    
-    # Ask button
-    col1, col2, col3 = st.columns([2, 1, 2])
-    with col2:
-        search_button = st.button("🔍 Ask Now!", use_container_width=True, type="primary")
-    
-    # Process query
-    if search_button and query_input:
-        st.session_state.total_queries += 1
+    with main_content:
+        # Main Content
+        st.markdown("<h1 style='text-align: center;'>🦊 GitLab Onboarding Assistant</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #94a3b8; font-weight: 300;'>Ask me anything about GitLab!</h3>", unsafe_allow_html=True)
         
-        with st.spinner("Processing..."):
-            start_time = time.time()
-            result = st.session_state.rag_pipeline.generate_answer(query_input, k=3)
-            response_time = time.time() - start_time
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        # Initialize pipeline
+        if st.session_state.rag_pipeline is None:
+            with st.spinner("Initializing AI from GCS..."):
+                st.session_state.rag_pipeline = initialize_pipeline()
+            st.success("✅ Ready!")
+        
+        # Query input - Now strictly centered
+        query_input = st.text_input(
+            "Your Question:",
+            placeholder="e.g., What is GitLab's sustainability approach?",
+            key="query_input",
+            label_visibility="collapsed" # Hides label for cleaner look
+        )
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        # Ask button - Centered within the main content column
+        # Using inner columns to make the button not full width of the center column
+        b_col1, b_col2, b_col3 = st.columns([1, 1, 1])
+        with b_col2:
+            search_button = st.button("🔍 Ask Now!", use_container_width=True, type="primary")
+        
+        # Process query
+        if search_button and query_input:
+            st.session_state.total_queries += 1
             
-            # Update stats
-            st.session_state.response_times.append(response_time)
-            st.session_state.avg_response_time = sum(st.session_state.response_times) / len(st.session_state.response_times)
-            
-            # Save to history
-            result['response_time'] = response_time
-            st.session_state.chat_history.insert(0, result)
-        
-        st.markdown("---")
-        
-        # Display answer
-        st.markdown("### 💡 Answer")
-        st.markdown(f'<div class="answer-box">{result["answer"]}</div>', unsafe_allow_html=True)
-        st.markdown(f"⏱️ **Response Time:** {response_time:.2f}s")
-        
-        # Sources (WITHOUT Type column)
-        st.markdown("### 📚 Retrieved Sources")
-        
-        for i, doc in enumerate(result['sources'], 1):
-            title = doc['metadata'].get('title', 'Unknown')
-            score = doc.get('rerank_score', doc.get('similarity', 0))
-            text = doc['document']
-            
-            score_emoji = "🟢" if score > 0.8 else "🟡" if score > 0.6 else "🟠"
-            
-            with st.expander(f"{score_emoji} Source {i}: {title} | Relevance: {score:.1%}", expanded=(i==1)):
-                # Only 2 columns: Relevance and Rank (NO Type)
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.metric("Relevance Score", f"{score:.4f}")
-                with col2:
-                    st.metric("Retrieval", "Top-K")
+            with st.spinner("Processing..."):
+                start_time = time.time()
+                result = st.session_state.rag_pipeline.generate_answer(query_input, k=3)
+                response_time = time.time() - start_time
                 
-                st.markdown(f"""
-                <div style="background-color: rgba(255, 255, 255, 0.03); padding: 15px; border-radius: 8px; margin-top: 10px;">
-                    {text[:500]}{'...' if len(text) > 500 else ''}
-                </div>
-                """, unsafe_allow_html=True)
-    
-    elif search_button:
-        st.warning("⚠️ Please enter a question!")
-    
-    # Show full conversation history below
-    if st.session_state.chat_history:
-        st.markdown("---")
-        st.markdown("### 📜 Full Conversation History")
-        
-        for i, item in enumerate(st.session_state.chat_history, 1):
-            with st.expander(f"#{i} • {item['query']}", expanded=False):
-                st.markdown(f"**💬 Answer:** {item['answer']}")
+                # Update stats
+                st.session_state.response_times.append(response_time)
+                st.session_state.avg_response_time = sum(st.session_state.response_times) / len(st.session_state.response_times)
                 
-                col1, col2, col3 = st.columns(3)
-                with col1:
-                    st.metric("Sources", item['num_sources'])
-                with col2:
-                    st.metric("Provider", item.get('provider', 'Groq'))
-                with col3:
-                    st.metric("Time", f"{item.get('response_time', 0):.2f}s")
+                # Save to history
+                result['response_time'] = response_time
+                st.session_state.chat_history.insert(0, result)
+            
+            st.markdown("---")
+            
+            # Display answer
+            st.markdown("### 💡 Answer")
+            st.markdown(f'<div class="answer-box">{result["answer"]}</div>', unsafe_allow_html=True)
+            st.markdown(f"⏱️ **Response Time:** {response_time:.2f}s")
+            
+            # Sources (WITHOUT Type column)
+            st.markdown("### 📚 Retrieved Sources")
+            
+            for i, doc in enumerate(result['sources'], 1):
+                title = doc['metadata'].get('title', 'Unknown')
+                score = doc.get('rerank_score', doc.get('similarity', 0))
+                text = doc['document']
+                
+                score_emoji = "🟢" if score > 0.8 else "🟡" if score > 0.6 else "🟠"
+                
+                with st.expander(f"{score_emoji} Source {i}: {title} | Relevance: {score:.1%}", expanded=(i==1)):
+                    # Only 2 columns: Relevance and Rank (NO Type)
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.metric("Relevance Score", f"{score:.4f}")
+                    with col2:
+                        st.metric("Retrieval", "Top-K")
+                    
+                    st.markdown(f"""
+                    <div style="background-color: rgba(255, 255, 255, 0.03); padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        {text[:500]}{'...' if len(text) > 500 else ''}
+                    </div>
+                    """, unsafe_allow_html=True)
+        
+        elif search_button:
+            st.warning("⚠️ Please enter a question!")
+        
+        # Show full conversation history below
+        if st.session_state.chat_history:
+            st.markdown("---")
+            st.markdown("### 📜 Full Conversation History")
+            
+            for i, item in enumerate(st.session_state.chat_history, 1):
+                with st.expander(f"#{i} • {item['query']}", expanded=False):
+                    st.markdown(f"**💬 Answer:** {item['answer']}")
+                    
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("Sources", item['num_sources'])
+                    with col2:
+                        st.metric("Provider", item.get('provider', 'Groq'))
+                    with col3:
+                        st.metric("Time", f"{item.get('response_time', 0):.2f}s")
 
 # Main logic
 if st.session_state.show_landing:
