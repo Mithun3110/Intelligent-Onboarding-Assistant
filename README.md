@@ -9,6 +9,9 @@
 </div>
 
 ---
+### Architecture Diagram
+
+![Architecture Diagram](images/Architecture_Diagram.jpeg)
 
 ## Table of Contents
 
@@ -643,11 +646,9 @@ manager.notify_retraining_triggered(
     drift_percentage=45.0
 )
 ```
-## 📊 MLflow Experiment Tracking & Monitoring
-
 ### Monitoring Dashboard & Alerts
 
-![MLOps Monitoring Alert](images/Model_Monitoring.png)
+![MLOps Monitoring Alert](images/Model_Monitoring.jpeg)
 
 *Automated email alert showing model retraining notification with timestamp and next steps.*
 
